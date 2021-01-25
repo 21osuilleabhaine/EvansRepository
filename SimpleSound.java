@@ -15,8 +15,15 @@ public class SimpleSound extends JFrame{
     Synthesizer syn;
     MidiChannel[] midChannel;
     Instrument[] instrument;
+    int xNote;
+    int yNote;
 
-    public SimpleSound() {
+    public void makeASound(int x, int y) {
+        xNote = x;
+        yNote = y;
+        this.midChannel[5].noteOn(x, y);
+    }
+    public SimpleSound(int x, int y) {
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -36,23 +43,12 @@ public class SimpleSound extends JFrame{
 
             button1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    makeASound();
+                    makeASound(x,y);
                 }
             });
 
         } catch (MidiUnavailableException ex) {
             ex.printStackTrace();
         }
-
-    }
-
-    void makeASound() {
-        this.midChannel[5].noteOn(55,550);
-//        this.midChannel[5].noteOn(70,700);
-//        this.midChannel[5].noteOn(30,400);
-    }
-
-    public static void main(String[] args) {
-        new SimpleSound().setVisible(true);
     }
 }

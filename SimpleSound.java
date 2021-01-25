@@ -21,8 +21,8 @@ public class SimpleSound extends JFrame{
     public void makeAChord(int x, int y) {
         Note1 = x;
         Note2 = y;
-        this.midChannel[5].noteOn(x, 550);
-        this.midChannel[5].noteOn(y, 550);
+        this.midChannel[0].noteOn(x, 550);
+        this.midChannel[0].noteOn(y, 550);
         //The MIDI channel can be anything from 0 to 15. Anything below or above that will fail to produce a sound.
     }
     public void makeASound(int x) {

@@ -1,5 +1,6 @@
 //This code was created by user d_air on Stack Overflow.
 //https://stackoverflow.com/questions/31910434/how-to-generate-audio-in-java
+//Edited by Evan O'Suilleabhain for the Technology Seminar Senior Project.
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

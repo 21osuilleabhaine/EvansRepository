@@ -45,7 +45,7 @@ public class SimpleSound extends JFrame{
         this.midChannel[5].noteOn(x+7, 550);
         this.midChannel[5].noteOn(x+12, 550);
     }
-    public SimpleSound(int x, int y, int z) {
+    public SimpleSound() {
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -65,63 +65,7 @@ public class SimpleSound extends JFrame{
 
             button1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    makeAChord3(x,y,z);
-                }
-            });
-
-        } catch (MidiUnavailableException ex) {
-            ex.printStackTrace();
-        }
-    }
-    public SimpleSound(int x, int y) {
-        this.setLayout(new BorderLayout());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JPanel panel = new JPanel();
-        JButton button1 = new JButton("Try");
-        this.add(panel);
-        panel.add(button1);
-        this.pack();
-
-        try {
-            syn = MidiSystem.getSynthesizer();
-            syn.open();
-            midChannel = syn.getChannels();
-
-            instrument = syn.getDefaultSoundbank().getInstruments();
-            syn.loadInstrument(instrument[90]);
-
-            button1.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    makeAChord2(x,y);
-                }
-            });
-
-        } catch (MidiUnavailableException ex) {
-            ex.printStackTrace();
-        }
-    }
-    public SimpleSound(int x) {
-        this.setLayout(new BorderLayout());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JPanel panel = new JPanel();
-        JButton button1 = new JButton("Try");
-        this.add(panel);
-        panel.add(button1);
-        this.pack();
-
-        try {
-            syn = MidiSystem.getSynthesizer();
-            syn.open();
-            midChannel = syn.getChannels();
-
-            instrument = syn.getDefaultSoundbank().getInstruments();
-            syn.loadInstrument(instrument[90]);
-
-            button1.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    makeASound(x);
+                    makeASound(100);
                 }
             });
 

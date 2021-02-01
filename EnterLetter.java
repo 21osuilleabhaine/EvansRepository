@@ -1,8 +1,8 @@
 //Created by Evan O'Suilleabhain
-//Input what note you want to hear and you will hear it!
+//Input the letter of the note you want to hear and you will hear it!
 
 import java.util.*;
-public class EnterNote
+public class EnterLetter
 {
     public static void main(String[] args)
     {
@@ -11,38 +11,38 @@ public class EnterNote
         switch(kbReader.next()) {
             case "B":
             case "b":
-                SimpleSound b = new SimpleSound(59);            //Plays the B4 note.
-                b.setVisible(true);
+                SimpleSound b = new SimpleSound();            //Plays the B4 note.
+                b.makeASound(59);
                 break;
             case "A":
             case "a":
-                SimpleSound a = new SimpleSound(57);            //Plays the A4 note.
-                a.setVisible(true);
+                SimpleSound a = new SimpleSound();            //Plays the A4 note.
+                a.makeASound(57);
                 break;
             case "G":
             case "g":
-                SimpleSound g = new SimpleSound(55);            //Plays the G4 note.
-                g.setVisible(true);                             
+                SimpleSound g = new SimpleSound();            //Plays the G4 note.                             
+                g.makeASound(55);
                 break;
             case "F":
             case "f":
-                SimpleSound f = new SimpleSound(53);            //Plays the F4 note.
-                f.setVisible(true);
+                SimpleSound f = new SimpleSound();            //Plays the F4 note.
+                f.makeASound(53);
                 break;
             case "E":
             case "e":
-                SimpleSound e = new SimpleSound(52);            //Plays the E4 note.
-                e.setVisible(true);
+                SimpleSound e = new SimpleSound();            //Plays the E4 note.
+                e.makeASound(52);
                 break;
             case "D":
             case "d":
-                SimpleSound d = new SimpleSound(50);            //Plays the D4 note.
-                d.setVisible(true);
+                SimpleSound d = new SimpleSound();            //Plays the D4 note.
+                d.makeASound(50);
                 break;
             case "C":
             case "c":
-                SimpleSound c = new SimpleSound(48);            //Plays the C4 note.
-                c.setVisible(true);
+                SimpleSound c = new SimpleSound();            //Plays the C4 note.
+                c.makeASound(48);
                 break;
         }        
         kbReader.close();        

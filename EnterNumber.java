@@ -8,8 +8,8 @@ public class EnterNumber
     {
         Scanner kbReader = new Scanner(System.in);
         System.out.print("What note do you want to play? ");
-        SimpleSound a = new SimpleSound(kbReader.nextInt());        //Plays the note that corresponds to each MIDI number (starting with G4 at 55 and moving 
-        a.setVisible(true);                                         //one piano key up and down per number).
+        SimpleSound a = new SimpleSound();                                        //Plays the note that corresponds to each MIDI number (starting with G4 at 55 and moving 
+        a.makeASound(kbReader.nextInt());                                         //one piano key up and down per number).
         kbReader.close();                                                                            
     }
 }

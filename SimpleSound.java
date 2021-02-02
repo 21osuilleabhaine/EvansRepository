@@ -24,15 +24,15 @@ public class SimpleSound extends JFrame{
         Note1 = x;
         Note2 = y;
         Note3 = z;
-        this.midChannel[0].noteOn(x, 550);
-        this.midChannel[0].noteOn(y, 550);
-        this.midChannel[0].noteOn(z, 550);
+        this.midChannel[5].noteOn(x, 550);
+        this.midChannel[5].noteOn(y, 550);
+        this.midChannel[5].noteOn(z, 550);
     }
     public void makeAChord2(int x, int y) {
         Note1 = x;
         Note2 = y;
-        this.midChannel[0].noteOn(x, 550);
-        this.midChannel[0].noteOn(y, 550);
+        this.midChannel[5].noteOn(x, 550);
+        this.midChannel[5].noteOn(y, 550);
     }
     public void makeASound(int x) {
         Note1 = x;

@@ -27,16 +27,22 @@ public class SimpleSound extends JFrame{
         this.midChannel[5].noteOn(x, 550);
         this.midChannel[5].noteOn(y, 550);
         this.midChannel[5].noteOn(z, 550);
+        this.midChannel[5].noteOff(x, 200);
+        this.midChannel[5].noteOff(y, 200);
+        this.midChannel[5].noteOff(z, 200);
     }
     public void makeAChord2(int x, int y) {
         Note1 = x;
         Note2 = y;
         this.midChannel[5].noteOn(x, 550);
         this.midChannel[5].noteOn(y, 550);
+        this.midChannel[5].noteOff(x, 200);
+        this.midChannel[5].noteOff(y, 200);
     }
     public void makeASound(int x) {
         Note1 = x;
         this.midChannel[5].noteOn(x, 550);
+        this.midChannel[5].noteOff(x, 200);
         //The MIDI channel can be anything from 0 to 15. Anything below or above that will fail to produce a sound.
     }
     public void makeAFifth(int x) {
@@ -45,6 +51,10 @@ public class SimpleSound extends JFrame{
         this.midChannel[5].noteOn(x+4, 550);
         this.midChannel[5].noteOn(x+7, 550);
         this.midChannel[5].noteOn(x+12, 550);
+        this.midChannel[5].noteOff(x, 200);
+        this.midChannel[5].noteOff(x+4, 200);
+        this.midChannel[5].noteOff(x+7, 200);
+        this.midChannel[5].noteOff(x+12, 200);
     }
     public SimpleSound() {
         this.setLayout(new BorderLayout());

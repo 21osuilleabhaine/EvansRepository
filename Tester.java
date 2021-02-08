@@ -35,6 +35,10 @@ public class Tester {
                 case "c":                                
                     note.makeASound(48);        //Plays the C4 note.
                     break;
+                case "H":
+                case "h":
+                    note.makeASound(43);
+                    break;
                 case "Cfifth":
                     note.makeAFifth(48);        //Plays a C major fifth chord.
                     break;

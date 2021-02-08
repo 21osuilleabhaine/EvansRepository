@@ -8,31 +8,31 @@ public class Tester {
         {
             switch(kbReader.next()) {
                 case "B":
-                case "b":                                
+                case "b":
                     note.makeASound(59);        //Plays the B4 note.
                     break;
                 case "A":
-                case "a":                                
+                case "a":
                     note.makeASound(57);        //Plays the A4 note.
                     break;
                 case "G":
-                case "g":                                
+                case "g":
                     note.makeASound(55);        //Plays the G4 note.
                     break;
                 case "F":
-                case "f":                                
+                case "f":
                     note.makeASound(53);        //Plays the F4 note.
                     break;
                 case "E":
-                case "e":                   
+                case "e":
                     note.makeASound(52);        //Plays the E4 note.
                     break;
                 case "D":
-                case "d":                    
+                case "d":
                     note.makeASound(50);        //Plays the D4 note.
                     break;
                 case "C":
-                case "c":                                
+                case "c":
                     note.makeASound(48);        //Plays the C4 note.
                     break;
                 case "H":

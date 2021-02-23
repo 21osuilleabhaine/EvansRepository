@@ -2,15 +2,12 @@
 //https://stackoverflow.com/questions/31910434/how-to-generate-audio-in-java
 //Edited by Evan O'Suilleabhain for the Technology Seminar Senior Project.
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.sound.midi.Instrument;
 import javax.sound.midi.MidiChannel;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Synthesizer;
 import javax.swing.*;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.MidiUnavailableException;
 
 public class SimpleSound extends JFrame{
     Synthesizer syn;
@@ -57,15 +54,6 @@ public class SimpleSound extends JFrame{
         this.midChannel[5].noteOff(x+12, 200);
     }
     public SimpleSound() {
-        this.setLayout(new BorderLayout());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JPanel panel = new JPanel();
-        JButton button1 = new JButton("Try");
-        this.add(panel);
-        panel.add(button1);
-        this.pack();
-
         try {
             syn = MidiSystem.getSynthesizer();
             syn.open();
@@ -73,13 +61,6 @@ public class SimpleSound extends JFrame{
 
             instrument = syn.getDefaultSoundbank().getInstruments();
             syn.loadInstrument(instrument[90]);
-
-            button1.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    makeASound(100);
-                }
-            });
-
         } catch (MidiUnavailableException ex) {
             ex.printStackTrace();
         }

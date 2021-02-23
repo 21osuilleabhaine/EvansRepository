@@ -34,11 +34,13 @@
 */
  
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.*;
 import javax.swing.*;
- 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
+
 public class KeyEventDemo extends JFrame
         implements KeyListener,
         ActionListener
@@ -46,8 +48,23 @@ public class KeyEventDemo extends JFrame
     JTextArea displayArea;
     JTextField typingArea;
     static final String newline = System.getProperty("line.separator");
-     
+    SimpleSound sound = new SimpleSound();
+    static HashMap<Character, Integer> keyboard = new HashMap<Character, Integer>();
+    
     public static void main(String[] args) {
+        keyboard.put('a', 48);
+        keyboard.put('w', 49);
+        keyboard.put('s', 50);
+        keyboard.put('e', 51);
+        keyboard.put('d', 52);
+        keyboard.put('f', 53);
+        keyboard.put('t', 54);
+        keyboard.put('g', 55);
+        keyboard.put('y', 56);
+        keyboard.put('h', 57);
+        keyboard.put('u', 58);
+        keyboard.put('j', 59);
+        keyboard.put('k', 60);
         /* Use an appropriate Look and Feel */
         try {
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -131,12 +148,12 @@ public class KeyEventDemo extends JFrame
      
     /** Handle the key pressed event from the text field. */
     public void keyPressed(KeyEvent e) {
-        displayInfo(e, "KEY PRESSED: ");
+        sound.midChannel[5].noteOn(keyboard.get(e.getKeyChar()), 550);
     }
      
     /** Handle the key released event from the text field. */
     public void keyReleased(KeyEvent e) {
-        displayInfo(e, "KEY RELEASED: ");
+        sound.midChannel[5].noteOff(keyboard.get(e.getKeyChar()), 200);
     }
      
     /** Handle the button click. */

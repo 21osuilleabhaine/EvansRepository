@@ -32,7 +32,9 @@
 /*
 * KeyEventDemo
 */
- 
+
+//Edited by Evan O'Suilleabhain for the Technology Senior Seminar Project.
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.*;
@@ -65,6 +67,19 @@ public class KeyEventDemo extends JFrame
         keyboard.put('u', 58);
         keyboard.put('j', 59);
         keyboard.put('k', 60);
+        keyboard.put('A', 60);
+        keyboard.put('W', 61);
+        keyboard.put('S', 62);
+        keyboard.put('E', 63);
+        keyboard.put('D', 64);
+        keyboard.put('F', 65);
+        keyboard.put('T', 66);
+        keyboard.put('G', 67);
+        keyboard.put('Y', 68);
+        keyboard.put('H', 69);
+        keyboard.put('U', 70);
+        keyboard.put('J', 71);
+        keyboard.put('K', 72);
         /* Use an appropriate Look and Feel */
         try {
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -98,12 +113,11 @@ public class KeyEventDemo extends JFrame
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        KeyEventDemo frame = new KeyEventDemo("KeyEventDemo");
+        KeyEventDemo frame = new KeyEventDemo("Piano!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          
         //Set up the content pane.
         frame.addComponentsToPane();
-         
          
         //Display the window.
         frame.pack();
@@ -125,52 +139,42 @@ public class KeyEventDemo extends JFrame
         //disables focus traversal and the Tab events will
         //become available to the key event listener.
         //typingArea.setFocusTraversalKeysEnabled(false);
-         
+        
         displayArea = new JTextArea();
         displayArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(displayArea);
         scrollPane.setPreferredSize(new Dimension(375, 125));
-         
+        
         getContentPane().add(typingArea, BorderLayout.PAGE_START);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
         getContentPane().add(button, BorderLayout.PAGE_END);
     }
-     
+    
     public KeyEventDemo(String name) {
         super(name);
     }
-     
-     
-    /** Handle the key typed event from the text field. */
-    public void keyTyped(KeyEvent e) {
-        
-    }
-     
+    
+    
+    /** Handle the key typed event from the text field. For our purposes, we leave this method empty.*/
+    public void keyTyped(KeyEvent e) {}
+    
     /** Handle the key pressed event from the text field. */
     public void keyPressed(KeyEvent e) {
         sound.midChannel[5].noteOn(keyboard.get(e.getKeyChar()), 550);
     }
-     
+    
     /** Handle the key released event from the text field. */
     public void keyReleased(KeyEvent e) {
         sound.midChannel[5].noteOff(keyboard.get(e.getKeyChar()), 200);
     }
-     
+    
     /** Handle the button click. */
     public void actionPerformed(ActionEvent e) {
         //Clear the text components.
         displayArea.setText("");
         typingArea.setText("");
-         
+        
         //Return the focus to the typing area.
         typingArea.requestFocusInWindow();
     }
-     
-    /*
-     * We have to jump through some hoops to avoid
-     * trying to print non-printing characters
-     * such as Shift.  (Not only do they not print,
-     * but if you put them in a String, the characters
-     * afterward won't show up in the text area.)
-     */
 }

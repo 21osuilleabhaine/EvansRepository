@@ -36,7 +36,6 @@
 //Edited by Evan O'Suilleabhain for the Technology Senior Seminar Project.
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -47,7 +46,6 @@ public class KeyEventDemo extends JFrame
         implements KeyListener,
         ActionListener
 {
-    JTextArea displayArea;
     JTextField typingArea;
     static final String newline = System.getProperty("line.separator");
     SimpleSound sound = new SimpleSound();
@@ -82,8 +80,6 @@ public class KeyEventDemo extends JFrame
         keyboard.put('K', 72);
         /* Use an appropriate Look and Feel */
         try {
-            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
@@ -125,13 +121,13 @@ public class KeyEventDemo extends JFrame
     }
      
     private void addComponentsToPane() {
-         
+        
         JButton button = new JButton("Clear");
         button.addActionListener(this);
-         
+        
         typingArea = new JTextField(20);
         typingArea.addKeyListener(this);
-         
+        
         //Uncomment this if you wish to turn off focus
         //traversal.  The focus subsystem consumes
         //focus traversal keys, such as Tab and Shift Tab.
@@ -140,13 +136,8 @@ public class KeyEventDemo extends JFrame
         //become available to the key event listener.
         //typingArea.setFocusTraversalKeysEnabled(false);
         
-        displayArea = new JTextArea();
-        displayArea.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(displayArea);
-        scrollPane.setPreferredSize(new Dimension(375, 125));
         
         getContentPane().add(typingArea, BorderLayout.PAGE_START);
-        getContentPane().add(scrollPane, BorderLayout.CENTER);
         getContentPane().add(button, BorderLayout.PAGE_END);
     }
     
@@ -171,7 +162,6 @@ public class KeyEventDemo extends JFrame
     /** Handle the button click. */
     public void actionPerformed(ActionEvent e) {
         //Clear the text components.
-        displayArea.setText("");
         typingArea.setText("");
         
         //Return the focus to the typing area.

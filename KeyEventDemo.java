@@ -38,8 +38,6 @@
 import java.awt.BorderLayout;
 import java.awt.event.*;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.*;
 
 public class KeyEventDemo extends JFrame
@@ -151,7 +149,10 @@ public class KeyEventDemo extends JFrame
     
     /** Handle the key pressed event from the text field. */
     public void keyPressed(KeyEvent e) {
-        sound.midChannel[5].noteOn(keyboard.get(e.getKeyChar()), 550);
+        if(e.getKeyChar() == 'b'){
+            sound.midChannel[5].noteOn(55, 0);
+        }
+        else{sound.midChannel[5].noteOn(keyboard.get(e.getKeyChar()), 550);}        
     }
     
     /** Handle the key released event from the text field. */

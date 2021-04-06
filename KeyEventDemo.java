@@ -107,7 +107,7 @@ public class KeyEventDemo extends JFrame
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        KeyEventDemo frame = new KeyEventDemo("Piano!");
+        KeyEventDemo frame = new KeyEventDemo("Piano!!!!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          
         //Set up the content pane.

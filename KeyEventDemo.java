@@ -39,6 +39,7 @@ import java.awt.BorderLayout;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
+import java.io.*;
 
 public class KeyEventDemo extends JFrame
         implements KeyListener,

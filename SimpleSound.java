@@ -13,31 +13,47 @@ public class SimpleSound extends JFrame{
     Synthesizer syn;
     MidiChannel[] midChannel;
     Instrument[] instrument;
-    int Note;
+    int Note1;
+    int Note2;
+    int Note3;
 
     public void makeAChord3(int x) {
-        Note = x;
+        Note1 = x;
         this.midChannel[5].noteOn(x, 550);
         this.midChannel[5].noteOn(x+3, 550);
         this.midChannel[5].noteOn(x+7, 550);
     }
     public void makeAChord2(int x) {
-        Note = x;
+        Note1 = x;
         this.midChannel[5].noteOn(x, 550);
         this.midChannel[5].noteOn(x+12, 550);
     }
     public void makeASound(int x) {
-        Note = x;
+        Note1 = x;
         this.midChannel[5].noteOn(x, 550);
         this.midChannel[5].noteOff(x, 200);
         //The MIDI channel can be anything from 0 to 15. Anything below or above that will fail to produce a sound.
     }
     public void makeAFifth(int x) {
-        Note = x;
+        Note1 = x;
         this.midChannel[5].noteOn(x, 550);
         this.midChannel[5].noteOn(x+4, 550);
         this.midChannel[5].noteOn(x+7, 550);
         this.midChannel[5].noteOn(x+12, 550);
+    }
+    public void enterNotes(int x, int y) {
+        Note1 = x;
+        Note2 = y;
+        this.midChannel[5].noteOn(x, 550);
+        this.midChannel[5].noteOn(y, 550);
+    }
+    public void enterNotes(int x, int y, int z) {
+        Note1 = x;
+        Note2 = y;
+        Note3 = z;
+        this.midChannel[5].noteOn(x, 550);
+        this.midChannel[5].noteOn(y, 550);
+        this.midChannel[5].noteOn(z, 550);
     }
     public SimpleSound() {
         try {

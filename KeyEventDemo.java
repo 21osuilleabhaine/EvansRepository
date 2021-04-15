@@ -28,7 +28,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
- 
+
 /*
 * KeyEventDemo
 */
@@ -91,7 +91,7 @@ public class KeyEventDemo extends JFrame
         }
         /* Turn off metal's use of bold fonts */
         UIManager.put("swing.boldMetal", Boolean.FALSE);
-         
+        
         //Schedule a job for event dispatch thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -150,10 +150,20 @@ public class KeyEventDemo extends JFrame
     
     /** Handle the key pressed event from the text field. */
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyChar() == 'b'){
-            sound.midChannel[5].noteOn(55, 0);
+        if(e.getKeyChar() == 'p'){
+            try {
+                FileOutputStream fos = new FileOutputStream("music", true);
+                String str = "" + e.getKeyChar();
+                byte[] b = str.getBytes();
+                fos.write(b);
+                fos.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
-        else{sound.midChannel[5].noteOn(keyboard.get(e.getKeyChar()), 550);}        
+        else {
+            sound.midChannel[5].noteOn(keyboard.get(e.getKeyChar()), 550);
+        }
     }
     
     /** Handle the key released event from the text field. */

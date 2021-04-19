@@ -46,6 +46,7 @@ public class KeyEventDemo extends JFrame
         ActionListener
 {
     JTextField typingArea;
+    StringBuffer savedString = new StringBuffer();
     static final String newline = System.getProperty("line.separator");
     SimpleSound sound = new SimpleSound();
     static HashMap<Character, Integer> keyboard = new HashMap<Character, Integer>();
@@ -151,10 +152,13 @@ public class KeyEventDemo extends JFrame
     /** Handle the key pressed event from the text field. */
     public void keyPressed(KeyEvent e) {
         if(e.getKeyChar() == 'p'){
-            try {
-                FileOutputStream fos = new FileOutputStream("music", true);
-                String str = "" + e.getKeyChar();
-                byte[] b = str.getBytes();
+            try {    
+                File musicOut = new File("music");
+                if (musicOut.exists()) {
+                    musicOut.delete();
+                }
+                FileOutputStream fos = new FileOutputStream(musicOut);
+                byte[] b = savedString.toString().getBytes();
                 fos.write(b);
                 fos.close();
             } catch (Exception ex) {
@@ -163,12 +167,15 @@ public class KeyEventDemo extends JFrame
         }
         else {
             sound.midChannel[5].noteOn(keyboard.get(e.getKeyChar()), 550);
+            savedString.append(e.getKeyChar());
         }
     }
     
     /** Handle the key released event from the text field. */
     public void keyReleased(KeyEvent e) {
-        sound.midChannel[5].noteOff(keyboard.get(e.getKeyChar()), 200);
+        if(e.getKeyChar() != 'p'){
+            sound.midChannel[5].noteOff(keyboard.get(e.getKeyChar()), 200);
+        }
     }
     
     /** Handle the button click. */
